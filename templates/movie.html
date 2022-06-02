@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="referrer" content="no-referrer" />
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../static/css/index.css">
+    <script src="../static/js/vue.js"></script>
+</head>
+
+<body>
+    <div class="content">
+        <div class="head">
+            <div class="logo">
+                <img src="../static/img/logo.png" style="width: 50px;">
+            </div>
+            <div class="title">数据分析</div>
+            <div class="nav">
+                <a href="index">首页</a>
+                <a href="movie">目录</a>
+                <a href="score">数据分析</a>
+                <a href="cloud">词云</a>
+            </div>
+            <div class="nav_footer nav_footer2"></div>
+        </div>
+        <div class="main">
+            <div class="cards">
+                <div v-for="item in items" :key="item.id" class="card">
+                    ${ item.name }
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <script>
+
+        const app = new Vue({
+            el: '.main',
+            delimiters: ['${','}'],
+            data: {
+                items: [
+                    {% for list in movies %}
+                    {id:'{[list[0]]}',imgSrc:'{[ list[1] ]}',src:'{[list[2]]}',name:'{[list[3]]}',ename:'{[list[4]]}',score:'{[list[5]]}',rated:'{[list[6]]}',introduction:'{[list[7]]}',info:'{[list[8]]}',country:'{[list[9]]}'},
+                    {% endfor %}
+                ]
+            }
+        })
+    </script>
+
+
+
+{#    <table class="table table-striped">#}
+{#        <tr>#}
+{#            <td>排名</td>#}
+{#            <td>影视图片</td>#}
+{#            <td>电影名</td>#}
+{#            <td>评分</td>#}
+{#            <td>概述</td>#}
+{#            <td>其他信息</td>#}
+{#        </tr>#}
+{#        {% for list in movies %}#}
+{#        <tr>#}
+{#            <td>{[ list[0] ]}</td>#}
+{#            <td><img src="{[ list[2] ]}" width="120" height="170"></td>#}
+{#            <td class="hh"> <a href="{[ list[1] ]}">{[ list[3] ]}{[ list[4] ]}</a> </td>#}
+{#            <td>{[ list[5] ]}</td>#}
+{#            <td>{[ list[7] ]}</td>#}
+{#            <td>{[ list[8] ]}</td>#}
+{#        </tr>#}
+{#        {% endfor %}#}
+{#    </table>#}
+{##}
+{#    <script>#}
+{#        #}
+{#    #}
+{#        let arr = []#}
+{#        {% for list in movies %}#}
+{#        arr.push('{[list[2]]}')#}
+{#        {% endfor %}#}
+{#        console.log(arr)#}
+{##}
+{#    </script>#}
+
+
+
+    <script src="../static/js/index.js"></script>
+</body>
+
+</html>
