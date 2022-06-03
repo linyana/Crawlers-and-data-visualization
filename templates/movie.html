@@ -27,16 +27,51 @@
         <div class="br"></div>
         <div class="main">
             <div class="cards">
-                <div v-for="item in items" :key="item.id" class="card" @click="showCoverBox(item.id,item.imgSrc,item.src,item.name,item.ename,item.score,item.rated,item.introduction)">
+                <div v-for="item in items" :key="item.id" class="card" @click="ShowCoverBox(item.id,item.imgSrc,item.src,item.name,item.ename,item.score,item.rated,item.introduction,item.info,item.country)">
                        <div class="card_img">
                            <img :src="item.imgSrc">
                        </div>
                 </div>
             </div>
             /* 遮盖层 */
-            <div class="cover_box" v-if="isShowCoverBox">
+            <div class="cover_box" v-show="isShowCoverBox">
                 <div class="cover_box_content">
-                    ${ coverContent.name }
+                    <div id="cover_box_exit" @click="ExitCoverBox()">
+                        <img src="../static/img/exit.png">
+                    </div>
+                    <div class="cover_box_left">
+                        <img :src="coverContent.imgSrc" class="cover_box_img">
+                    </div>
+                    <div class="cover_box_right">
+                        <div class="cover_box_title">
+                            ${ coverContent.name }
+                        </div>
+                        <div class="cover_box_title2" v-show="coverContent.ename">
+                            本名：&emsp;${ coverContent.ename }
+                        </div>
+                        <div class="cover_box_introduce">
+                            简介：&emsp;${ coverContent.introduce}
+                        </div>
+                        <div class="cover_box_rated">
+                            地区：&emsp; ${ coverContent.country }
+                        </div>
+                        <div class="cover_box_score_father">
+                            评分：
+                            &emsp;
+                            <div class="cover_box_score">
+                                <div :style="score"></div>
+                            </div>
+                            &emsp;&emsp;
+                            ${ coverContent.score }分
+                        </div>
+                        <div class="cover_box_rated">
+                           评分人数： ${ coverContent.rated }
+                        </div>
+                        <div class="cover_box_info">
+                            详细介绍：&emsp; ${ coverContent.info }
+                        </div>
+                        <a class="cover_box_button" :href="coverContent.src">点击观看</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -59,17 +94,26 @@
                 ],
                 coverContent: {},
                 isShowCoverBox: false,
+                score: '',
             },
             methods: {
-                showCoverBox(id,imgSrc,src,name,ename,score,rated,introduce){
+                ShowCoverBox(id,imgSrc,src,name,ename,score,rated,introduce,info,country){
                     this.isShowCoverBox = true;
                     this.coverContent.id = id;
                     this.coverContent.imgSrc = imgSrc;
+                    this.coverContent.src = src;
                     this.coverContent.name = name;
                     this.coverContent.ename = ename;
                     this.coverContent.score = score;
                     this.coverContent.rated = rated;
-                    this.coverContent.intorduce = introduce;
+                    this.coverContent.introduce = introduce;
+                    this.coverContent.info = info;
+                    this.coverContent.country = country;
+                    this.score = 0 + '%';
+                    this.score = 'width: ' + score * 10 + '%';
+                },
+                ExitCoverBox(){
+                    this.isShowCoverBox = false;
                 }
             }
         })

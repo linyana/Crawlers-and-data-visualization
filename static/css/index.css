@@ -237,10 +237,13 @@ a.box_a {
     width: 100%;
     height: 100%;
     min-width: 1200px;
-    background-color: rgb(0,0,0,0.2)
+    font-size: 18px;
+    transition: all 1s;
+    background-color: rgb(0,0,0,0.7);
 }
 
 .cover_box_content {
+    display: flex;
     position: absolute;
     top: calc( 50% - 350px);
     left: calc( 50% - 600px);
@@ -248,4 +251,95 @@ a.box_a {
     height: 700px;
     border-radius: 30px;
     background-color: white;
+}
+
+.cover_box_left {
+    width: 50%;
+    text-align: center;
+}
+
+.cover_box_right {
+    width: 50%;
+}
+
+.cover_box_right > div {
+    line-height: 50px;
+}
+
+img.cover_box_img {
+    width: 70%;
+    height: 600px;
+    margin-top: 50px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.4);
+}
+
+.cover_box_title {
+    margin-top: 50px;
+    line-height: 100px;
+    font-size: 35px;
+    text-align: center;
+}
+
+div#cover_box_exit {
+    cursor: pointer;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 0 5px rgba(0,0,0,0.7);
+}
+
+div#cover_box_exit img {
+    width: 70%;
+    margin-top: 15%;
+}
+
+.cover_box_title2 {
+    line-height: 50px;
+}
+
+.cover_box_score_father {
+    margin-top: 10px;
+    display: flex;
+    line-height: 30px;
+}
+
+.cover_box_score {
+    margin-top: 10px;
+    width: 300px;
+    height: 40px;
+    margin-bottom: 10px;
+    box-shadow: 0 0 20px rgba(59, 105, 189,0.8);
+}
+
+.cover_box_score > div {
+    width: 0%;
+    height: 100%;
+    background-color: rgba(59, 105, 189,0.8);
+    transition: all 1s;
+}
+
+.cover_box_info {
+    line-height: 35px!important;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+a.cover_box_button {
+    cursor: pointer;
+    margin-top: 20px;
+    display: inline-block;
+    width: 100px;
+    height: 35px;
+    outline: none;
+    border: none;
+    text-align: center;
+    line-height: 35px;
+    font-size: 16px;
+    color: white;
+    text-decoration: none;
+    background-color: rgba(59, 105, 189,0.8);
 }
