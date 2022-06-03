@@ -197,5 +197,32 @@ a.box_a {
 
 /* movie content */
 
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.card {
+    margin-right: 30px;
+    margin-bottom: 30px;
+    width: 270px;
+    height: 400px;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgb(0,0,0,0.5);
+}
+
+.card img {
+    cursor: pointer;
+    width: 270px;
+    height: 400px;
+    border-radius: 20px;
+    box-shadow: 0 0 20px rgb(0,0,0,0.5);
+    transition: all 0.8s;
+}
+
+.card img:hover {
+    transform: scale(1.1);
+}
 
 

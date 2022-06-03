@@ -24,12 +24,15 @@
             </div>
             <div class="nav_footer nav_footer2"></div>
         </div>
-        <div class="main">
-            <div class="cards">
-                <div v-for="item in items" :key="item.id" class="card">
-                    ${ item.name }
-                </div>
+        <br><br>
+        <div class="cards">
+            <div v-for="item in items" :key="item.id" class="card">
+                   <div class="card_img">
+                       <img :src="item.imgSrc">
+                   </div>
             </div>
+        </div>
+        <div class="main">
         </div>
     </div>
 
@@ -45,7 +48,7 @@
             data: {
                 items: [
                     {% for list in movies %}
-                    {id:'{[list[0]]}',imgSrc:'{[ list[1] ]}',src:'{[list[2]]}',name:'{[list[3]]}',ename:'{[list[4]]}',score:'{[list[5]]}',rated:'{[list[6]]}',introduction:'{[list[7]]}',info:'{[list[8]]}',country:'{[list[9]]}'},
+                    {id:'{[list[0]]}',imgSrc:'{[ list[2] ]}',src:'{[list[1]]}',name:'{[list[3]]}',ename:'{[list[4]]}',score:'{[list[5]]}',rated:'{[list[6]]}',introduction:'{[list[7]]}',info:'{[list[8]]}',country:'{[list[9]]}'},
                     {% endfor %}
                 ]
             }
