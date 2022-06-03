@@ -4,7 +4,7 @@
 <head>
     <meta name="referrer" content="no-referrer" />
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Crawlers-and-data-visualization</title>
     <link rel="stylesheet" href="../static/css/index.css">
     <script src="../static/js/vue.js"></script>
 </head>
@@ -24,15 +24,21 @@
             </div>
             <div class="nav_footer nav_footer2"></div>
         </div>
-        <br><br>
-        <div class="cards">
-            <div v-for="item in items" :key="item.id" class="card">
-                   <div class="card_img">
-                       <img :src="item.imgSrc">
-                   </div>
-            </div>
-        </div>
+        <div class="br"></div>
         <div class="main">
+            <div class="cards">
+                <div v-for="item in items" :key="item.id" class="card" @click="showCoverBox(item.id,item.imgSrc,item.src,item.name,item.ename,item.score,item.rated,item.introduction)">
+                       <div class="card_img">
+                           <img :src="item.imgSrc">
+                       </div>
+                </div>
+            </div>
+            /* 遮盖层 */
+            <div class="cover_box" v-if="isShowCoverBox">
+                <div class="cover_box_content">
+                    ${ coverContent.name }
+                </div>
+            </div>
         </div>
     </div>
 
@@ -50,44 +56,27 @@
                     {% for list in movies %}
                     {id:'{[list[0]]}',imgSrc:'{[ list[2] ]}',src:'{[list[1]]}',name:'{[list[3]]}',ename:'{[list[4]]}',score:'{[list[5]]}',rated:'{[list[6]]}',introduction:'{[list[7]]}',info:'{[list[8]]}',country:'{[list[9]]}'},
                     {% endfor %}
-                ]
+                ],
+                coverContent: {},
+                isShowCoverBox: false,
+            },
+            methods: {
+                showCoverBox(id,imgSrc,src,name,ename,score,rated,introduce){
+                    this.isShowCoverBox = true;
+                    this.coverContent.id = id;
+                    this.coverContent.imgSrc = imgSrc;
+                    this.coverContent.name = name;
+                    this.coverContent.ename = ename;
+                    this.coverContent.score = score;
+                    this.coverContent.rated = rated;
+                    this.coverContent.intorduce = introduce;
+                }
             }
         })
     </script>
 
 
 
-{#    <table class="table table-striped">#}
-{#        <tr>#}
-{#            <td>排名</td>#}
-{#            <td>影视图片</td>#}
-{#            <td>电影名</td>#}
-{#            <td>评分</td>#}
-{#            <td>概述</td>#}
-{#            <td>其他信息</td>#}
-{#        </tr>#}
-{#        {% for list in movies %}#}
-{#        <tr>#}
-{#            <td>{[ list[0] ]}</td>#}
-{#            <td><img src="{[ list[2] ]}" width="120" height="170"></td>#}
-{#            <td class="hh"> <a href="{[ list[1] ]}">{[ list[3] ]}{[ list[4] ]}</a> </td>#}
-{#            <td>{[ list[5] ]}</td>#}
-{#            <td>{[ list[7] ]}</td>#}
-{#            <td>{[ list[8] ]}</td>#}
-{#        </tr>#}
-{#        {% endfor %}#}
-{#    </table>#}
-{##}
-{#    <script>#}
-{#        #}
-{#    #}
-{#        let arr = []#}
-{#        {% for list in movies %}#}
-{#        arr.push('{[list[2]]}')#}
-{#        {% endfor %}#}
-{#        console.log(arr)#}
-{##}
-{#    </script>#}
 
 
 
