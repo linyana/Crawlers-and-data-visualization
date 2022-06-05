@@ -63,7 +63,7 @@ def getData(dbUrl):
     for url in Create_Url(dbUrl):
         # print(url)
         html = AskUrl(url)
-        time.sleep(0.5)
+        time.sleep(0.3)
         page = BeautifulSoup(html, "html.parser")  # 把响应的返回的页面代码交给BeautifulSoup处理
         divlist = page.find_all("div", class_="item")
 

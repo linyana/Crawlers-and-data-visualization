@@ -35,14 +35,14 @@
                 </div>
             </div>
             <div class="right">
-                <img src="../static/img/1.png" alt="">
+                <img src="../static/img/1.png"  class="pre">
             </div>
         </div>
         <div class="boxes">
             <a href="index" class="box_a">
                 <div class="box">
                     <div class="box_img">
-                        <img src="../static/img/5.png" alt="">
+                        <img src="../static/img/5.png">
                     </div>
                     <div class="box_text1">
                         1
@@ -97,7 +97,28 @@
         <div class="footer"></div>
     </div>
 
-
+    <script>
+        const bannerText1 = document.querySelector('.banner_text1');
+        const bannerText2 = document.querySelector('.banner_text2');
+        const bannerText3 = document.querySelector('.banner_text3');
+        const bannerImg = document.querySelector('.right img');
+        const body = document.querySelector('body')
+        bannerText3.addEventListener('click',()=>{
+            location.href = 'score';
+        })
+        window.onload = function () {
+            bannerImg.style.transform = 'scale(1)'
+            bannerImg.style.opacity = 1;
+            bannerText1.style.transform = 'translateY(0px)'
+            bannerText1.style.opacity = 1;
+            bannerText2.style.transform = 'translateY(0px)'
+            bannerText2.style.opacity = 1;
+            setTimeout(function (){
+                bannerText3.style.transform = 'scale(1)'
+                bannerText3.style.opacity = 1;
+            },500)
+        }
+    </script>
     <script src="../static/js/index.js"></script>
 </body>
 
