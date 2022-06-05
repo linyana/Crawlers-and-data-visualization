@@ -2,13 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1a225b8f-f3a7-412b-8c3f-fc79365938f5" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/movie.db" beforeDir="false" afterPath="$PROJECT_DIR$/movie.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/cloud.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cloud.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/score.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/score.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/豆瓣top250.py" beforeDir="false" afterPath="$PROJECT_DIR$/豆瓣top250.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud.py" beforeDir="false" afterPath="$PROJECT_DIR$/cloud.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -147,7 +141,7 @@
       <workItem from="1654233245166" duration="1994000" />
       <workItem from="1654252812943" duration="8057000" />
       <workItem from="1654409967567" duration="3821000" />
-      <workItem from="1654417286271" duration="6593000" />
+      <workItem from="1654417286271" duration="6995000" />
     </task>
     <servers />
   </component>

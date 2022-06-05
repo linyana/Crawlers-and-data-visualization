@@ -25,17 +25,32 @@ conn.close()
 cut=jieba.cut(text)
 string=' '.join(cut)
 print(len(string))
-Img = Image.open(r'static/tree.png')  # 打开遮罩图片
-img_arry = np.array(Img)  # 将图片转为数组
-wc = WordCloud(
-    background_color='white',
-    mask=img_arry,
-    font_path="simsun.ttc"   #字体位置在c:\windows\fonts
-)
-wc.generate_from_text(string)
-#绘制图片
-flg = plt.figure(1)
-plt.imshow(wc)
-plt.axis('off')
-# plt.show()
-plt.savefig(r'.\static\tree.jpg',dpi=200)
+def wc(name,font):
+    Img = Image.open(f'static/{name}.png')  # 打开遮罩图片
+    img_arry = np.array(Img)  # 将图片转为数组
+    wc = WordCloud(
+        background_color='white',
+        mask=img_arry,
+        font_path=f"{font}"   #字体位置在c:\windows\fonts
+    )
+    wc.generate_from_text(string)
+    #绘制图片
+    flg = plt.figure(1)
+    plt.imshow(wc)
+    plt.axis('off')
+    # plt.show()
+    plt.savefig(f'./static/{name}.jpg',dpi=200)
+
+def main():
+    name="tree"
+    name1="flower"
+    name2="m"
+    font="msyh.ttc"
+    font1="simkai.ttf"
+    font2="方正粗黑宋简体.ttf"
+    wc(name,font)
+    wc(name1,font1)
+    wc(name2,font2)
+
+if __name__ == '__main__':
+    main()
