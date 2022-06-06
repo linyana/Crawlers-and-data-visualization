@@ -282,8 +282,26 @@ a.box_a {
     transform: scale(1.1);
 }
 
-.br {
-    height: 100px;
+.search {
+    height: 200px;
+    position: relative;
+}
+
+input.search_input {
+    position: absolute;
+    left: 25%;
+    top: 60px;
+    width: 50%;
+    height: 40px;
+    font-size: 20px;
+    border: 2px solid rgb(110, 137, 193);
+    border-radius: 10px;
+    text-indent: 10px;
+    box-shadow: 0 0 5px rgb(110, 137, 193, 0.5);
+}
+
+input.search_input:focus {
+    outline: none;
 }
 
 .cover_box {
