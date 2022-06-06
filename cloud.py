@@ -23,10 +23,10 @@ cur.close()
 conn.close()
 
 cut=jieba.cut(text)
-string=' '.join(cut)
-print(len(string))
+string=' '.join(cut).replace("的","").replace("是","").replace("你","").replace("我","").replace("们","").replace("不","").replace("了","").replace("人","").replace("就","").replace("都","").replace("电影","")
+# print(len(string))
 def wc(name,font):
-    Img = Image.open(f'static/{name}.png')  # 打开遮罩图片
+    Img = Image.open(f'./static/img/{name}.png')  # 打开遮罩图片
     img_arry = np.array(Img)  # 将图片转为数组
     wc = WordCloud(
         background_color='white',
@@ -39,18 +39,23 @@ def wc(name,font):
     plt.imshow(wc)
     plt.axis('off')
     # plt.show()
-    plt.savefig(f'./static/{name}.jpg',dpi=200)
+    plt.savefig(f'./static/img/{name}.jpg',dpi=200)
 
 def main():
-    name="tree"
+    name="Orange"
     name1="flower"
     name2="m"
     font="msyh.ttc"
-    font1="simkai.ttf"
-    font2="方正粗黑宋简体.ttf"
+    font1="msyh.ttc"
+    font2="msyh.ttc"
+    name3="tree"
+    font3 = "msyh.ttc"
     wc(name,font)
     wc(name1,font1)
     wc(name2,font2)
+    wc(name3,font3)
+
 
 if __name__ == '__main__':
     main()
+    print("over")
